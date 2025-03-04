@@ -1,6 +1,6 @@
 import "./index.css"
 import "./App.css";
-import Wellcome from "./components/Wellcome";
+import Welcome from "./components/Welcome";
 import Spotify from "./components/Spotify";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
@@ -13,8 +13,8 @@ import AboutMe from "./components/AboutMe";
 function App() {
   return (
     <>
-      <main class="parent">
-        <Wellcome />
+      <main className="parent">
+        <Welcome />
         <AboutMe />
         <Projects />
         <Skills />

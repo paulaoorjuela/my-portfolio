@@ -1,5 +1,5 @@
 export default function Contact(){
     return(
-        <div class="div8 gray-background">8</div>
+        <div className="div8 gray-background">Contact</div>
     )
 }

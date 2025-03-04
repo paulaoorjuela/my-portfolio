@@ -1,5 +1,5 @@
 export default function Skills(){
     return(
-        <div class="div4 gray-background">4</div>
+        <div className="div4 gray-background">Skills</div>
     )
 }

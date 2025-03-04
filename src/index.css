@@ -1,11 +1,11 @@
 
 :root{
-  --light-blue: #748CAB;
-  --beige: #F0EBD8;
-  --spotify-green: #16DB65;
+  --yellow: #FFCA09;
+  --light-gray: #55575C;
+  --spotify-green: #1FD65E;
   --black: #020202;
-  --gray: #2D3A3A;
-  --white: #FCFFFC;
+  --gray: #1F1F1F;
+  --white: #e6e6e6;
 }
 
 body{
@@ -13,12 +13,12 @@ body{
 }
 
 /* ------------ TEXT COLOR ------------ */
-.light-blue-text{
-  color: var(--light-blue);
+.yellow-text{
+  color: var(--yellow);
 }
 
-.beige-text{
-  color: var(--beige);
+.light-gray-text{
+  color: var(--light-gray);
 }
 
 .spotify-green-text{
@@ -38,12 +38,12 @@ body{
 }
 
 /* ------------ BACKGROUND COLORS ------------ */
-.light-blue-background{
-  background-color: var(--light-blue) !important;
+.yellow-background{
+  background-color: var(--yellow) !important;
 }
 
-.beige-background{
-  background-color: var(--beige) !important;
+.light-gray-background{
+  background-color: var(--light-gray) !important;
 }
 
 .spotify-green-background{
@@ -75,13 +75,18 @@ body{
   margin: 20px auto;
 }
 
-.div1, .div2, .div3, .div4, .div5, .div6, .div7, .div8, .div9, .div10 {
+.div1, .div2, .div3, .div4, .div5, .div6, .div7, .div8, .div9 {
   border-radius: 15px;
   background-color: white;
+  transition: transform 0.2s ease;
 
 }
 
-.div1, .div2, .div3, .div4, .div5, .div6, .div7, .div8, .div9, .div10:hover {
+.div1:hover, .div2:hover, .div3:hover, .div4:hover, 
+.div5:hover, .div6:hover, .div7:hover, .div8:hover, 
+.div9:hover {
+  transform: scale(1.02); /* Slightly increase size */
+  z-index: 1; /* Ensure hovered element appears above others */
 }
   
 .div1 {

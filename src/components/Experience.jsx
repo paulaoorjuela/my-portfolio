@@ -1,5 +1,5 @@
 export default function Experience(){
     return(
-        <div class="div7 light-blue-background">7</div>
+        <div className="div7 yellow-background">Experience</div>
     )
 }

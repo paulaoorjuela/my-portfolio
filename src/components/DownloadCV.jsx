@@ -1,5 +1,5 @@
 export default function DownloadCV(){
     return(
-        <div class="div9 beige-background">9</div>
+        <div className="div9 light-gray-background">Download CV</div>
     )
 }
