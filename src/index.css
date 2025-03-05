@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100..900&family=Shrikhand&display=swap');
+@import "tailwindcss";
 
 :root{
   --yellow: #FFCA09;
@@ -9,7 +11,28 @@
 }
 
 body{
-  background-color: black;
+  background-color:  var(--black);
+}
+
+/* ------------ FONTS ------------ */
+.raleway-regular {
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.raleway-semiBold{
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.shrikhand-regular {
+  font-family: "Shrikhand", serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 /* ------------ TEXT COLOR ------------ */
@@ -75,21 +98,20 @@ body{
   margin: 20px auto;
 }
 
-.div1, .div2, .div3, .div4, .div5, .div6, .div7, .div8, .div9 {
+.welcome-card, .div2, .div3, .div4, .div5, .div6, .div7, .div8, .div9 {
   border-radius: 15px;
-  background-color: white;
   transition: transform 0.2s ease;
-
+  padding: 10px;
 }
 
-.div1:hover, .div2:hover, .div3:hover, .div4:hover, 
+.div2:hover, .div3:hover, .div4:hover, 
 .div5:hover, .div6:hover, .div7:hover, .div8:hover, 
 .div9:hover {
   transform: scale(1.02); /* Slightly increase size */
   z-index: 1; /* Ensure hovered element appears above others */
 }
   
-.div1 {
+.welcome-card {
   grid-column: span 2 / span 2;
   grid-row: span 4 / span 4;
   grid-column-start: 2;
@@ -154,7 +176,7 @@ body{
     gap: 8px;
   }
     
-  .div1 {
+  .welcome-card {
     grid-row: span 2 / span 2;
     grid-column-start: 1;
     grid-column-end: 3;
