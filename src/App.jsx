@@ -15,12 +15,12 @@ function App() {
     <>
       <main className="parent">
         <Welcome />
-        <AboutMe />
+        <Experience />
         <Projects />
         <Skills />
         <Education />
         <Spotify />
-        <Experience />
+        <AboutMe />
         <Contact />
         <DownloadCV />
       </main>

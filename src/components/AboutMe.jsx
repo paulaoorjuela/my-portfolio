@@ -1,5 +1,8 @@
 export default function AboutMe(){
     return(
-        <div className="div2 yellow-background">About Me</div>
+        <div className="div7 yellow-background">
+            <p>About Me</p>
+            <img src="/assets/flower.avif" alt="" />
+        </div>
     )
 }

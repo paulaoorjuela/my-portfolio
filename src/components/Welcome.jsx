@@ -1,8 +1,9 @@
 export default function Welcome() {
     return (
-    <article className="welcome-card white-background raleway-regular flex justify-between">
-        <div className="text-[40px] flex flex-col justify-center items-start gap-2.5">
-            <p><span className="raleway-semiBold">Hi there! <br /> </span>I’m Paula</p>
+    <article className="welcome-card white-background raleway-regular flex justify-around">
+        <div className="text-[20px] lg:text-[40px] flex flex-col justify-center items-start lg:gap-2">
+            <p><span className="raleway-semiBold">Hi there! <br className="hidden lg:block"/> </span>I’m Paula</p>
+            <mark className="raleway-regular text-[10px] lg:text-[14px] mb-2 lg:mb-8 black-background white-text rounded-sm pr-1 pl-1 py-0" >Full-Stack Software Developer</mark>
             <p>Welcome to <br />my <span className="raleway-semiBold">portfolio!</span></p>
         </div>
         <div>
