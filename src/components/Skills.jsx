@@ -3,7 +3,7 @@ export default function Skills(){
         <div className="div4 gray-background flex">
             <p className="raleway-semiBold white-text text-[35px] text-left mt-[60px] ms-[29px]">Skills</p>
             <img className="relative left-[82px] top-[70px] w-[100px] h-fit" src="/assets/skills.avif" alt="3d skills" />
-            <div className="ps-[84px]">
+            <div className="ps-[47px]">
                 <animated-icons
                     src="https://animatedicons.co/get-icon?name=Fullscreen&style=minimalistic&token=defd54f5-3357-43dd-ad9e-32e227c0ac60"
                     trigger="loop-on-hover"

@@ -3,7 +3,7 @@ export default function Education(){
         <div className="div5 light-gray-background flex">
             <p className="shrikhand-regular white-text text-[35px] text-left mt-[104px] ms-[29px]">Education</p>
             <img className="relative left-[118px] bottom-[30px] w-[32%] h-fit" src="/assets/ring.avif" alt="3d ring" />
-            <div className="ps-[235px]">
+            <div className="ps-[182px]">
                 <animated-icons
                     src="https://animatedicons.co/get-icon?name=Fullscreen&style=minimalistic&token=defd54f5-3357-43dd-ad9e-32e227c0ac60"
                     trigger="loop-on-hover"

@@ -18,7 +18,7 @@ export default function Projects(){
                 ></animated-icons>
             </div>
             <p className="raleway-semiBold white-text text-[35px] text-left mt-[55px] ms-[29px]">Projects</p>
-            <img className="relative left-[155px] top-[2px]" src="/assets/spring.avif" alt="3d spring" />
+            <img className="relative left-[130px] top-[-20px]" src="/assets/spring.avif" alt="3d spring" />
         </div>
     )
 }

@@ -22,7 +22,7 @@ export default function Experience() {
                 Experience
             </p>
             <img
-                className="relative left-[155px] top-[10px]"
+                className="relative left-[130px] top-[10px]"
                 src="/assets/piramid.avif"
                 alt="3d piramid"
             />
