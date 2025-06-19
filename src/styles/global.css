@@ -1,0 +1,255 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100..900&family=Shrikhand&display=swap");
+@import "tailwindcss";
+
+:root {
+    --yellow: #ffca09;
+    --light-gray: #55575c;
+    --spotify-green: #1fd65e;
+    --black: #020202;
+    --gray: #1f1f1f;
+    --white: #e6e6e6;
+}
+
+body {
+    background-color: var(--black);
+}
+
+/* ------------ FONTS ------------ */
+.raleway-regular {
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.raleway-semiBold {
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.shrikhand-regular {
+    font-family: "Shrikhand", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* ------------ TEXT COLOR ------------ */
+.yellow-text {
+    color: var(--yellow);
+}
+
+.light-gray-text {
+    color: var(--light-gray);
+}
+
+.spotify-green-text {
+    color: var(--spotify-green);
+}
+
+.black-text {
+    color: var(--black);
+}
+
+.gray-text {
+    color: var(--gray);
+}
+
+.white-text {
+    color: var(--white);
+}
+
+/* ------------ BACKGROUND COLORS ------------ */
+.yellow-background {
+    background-color: var(--yellow) !important;
+}
+
+.light-gray-background {
+    background-color: var(--light-gray) !important;
+}
+
+.spotify-green-background {
+    background-color: var(--spotify-green) !important;
+}
+
+.black-background {
+    background-color: var(--black) !important;
+}
+
+.gray-background {
+    background-color: var(--gray) !important;
+}
+
+.white-background {
+    background-color: var(--white) !important;
+}
+
+/* PAGE STYLES */
+
+.parent {
+    width: 90%;
+    text-align: center;
+    height: 94vh;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    gap: 16px;
+    margin: 20px auto;
+}
+
+.welcome-card,
+.div2,
+.div3,
+.div4,
+.div5,
+.div6,
+.div7,
+.div8,
+.div9 {
+    border-radius: 15px;
+    transition: transform 0.2s ease;
+    padding: 10px;
+}
+
+.div2:hover,
+.div3:hover,
+.div4:hover,
+.div5:hover,
+.div6:hover,
+.div7:hover,
+.div8:hover,
+.div9:hover {
+    transform: scale(1.02); /* Slightly increase size */
+    z-index: 1; /* Ensure hovered element appears above others */
+}
+
+.welcome-card {
+    grid-column: span 2 / span 2;
+    grid-row: span 4 / span 4;
+    grid-column-start: 2;
+    grid-row-start: 3;
+}
+
+.div2 {
+    grid-row: span 4 / span 4;
+    grid-column-start: 1;
+    grid-row-start: 1;
+}
+
+.div3 {
+    grid-row: span 4 / span 4;
+    grid-column-start: 1;
+    grid-row-start: 5;
+}
+
+.div4 {
+    grid-row: span 2 / span 2;
+    grid-column-start: 2;
+    grid-row-start: 7;
+}
+
+.div5 {
+    grid-column: span 2 / span 2;
+    grid-row: span 2 / span 2;
+    grid-column-start: 3;
+    grid-row-start: 7;
+}
+
+.div6 {
+    grid-row: span 2 / span 2;
+    grid-column-start: 4;
+    grid-row-start: 5;
+}
+
+.div7 {
+    grid-row: span 4 / span 4;
+    grid-column-start: 4;
+    grid-row-start: 1;
+}
+
+.div8 {
+    grid-row: span 2 / span 2;
+    grid-column-start: 3;
+    grid-row-start: 1;
+}
+
+.div9 {
+    grid-row: span 2 / span 2;
+    grid-column-start: 2;
+    grid-row-start: 1;
+}
+
+@media (max-width: 770px) {
+    .parent {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(15, 1fr);
+        gap: 8px;
+    }
+
+    .welcome-card {
+        grid-row: span 2 / span 2;
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 1;
+        grid-row-end: 5;
+    }
+
+    .div2 {
+        grid-row: span 4 / span 4;
+        grid-column-start: 1;
+        grid-row-start: 5;
+        grid-row-end: 9;
+    }
+
+    .div3 {
+        grid-row: span 4 / span 4;
+        grid-column-start: 2;
+        grid-row-start: 5;
+        grid-row-end: 9;
+    }
+
+    .div4 {
+        grid-row: span 4 / span 4;
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 9;
+        grid-row-end: 12;
+    }
+
+    .div5 {
+        grid-row: span 4 / span 4;
+        grid-row-start: 9;
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-end: 11;
+    }
+
+    .div6 {
+        grid-row: span 4 / span 4;
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 12;
+        grid-row-end: 15;
+    }
+
+    .div7 {
+        grid-row: span 4 / span 4;
+        grid-row-start: 11;
+        grid-column-start: 2;
+        grid-row-end: 15;
+    }
+
+    .div8 {
+        grid-row: span 4 / span 4;
+        grid-row-start: 15;
+        grid-column-start: 1;
+    }
+
+    .div9 {
+        grid-row: span 4 / span 4;
+        grid-column-start: 2;
+        grid-row-start: 15;
+    }
+}
