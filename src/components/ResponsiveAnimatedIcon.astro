@@ -1,0 +1,49 @@
+---
+// Define the props
+export interface Props {
+  src: string;
+  trigger?: string;
+  variationThumbColour?: string;
+  variationName?: string;
+  variationNumber?: string;
+  numberOfGroups?: string;
+  strokeWidth?: string;
+  backgroundIsGroup?: string;
+  defaultColours?: string;
+  height?: string;
+  width?: string;
+  className?: string;
+}
+
+// Set default props
+const {
+  src,
+  trigger = "loop-on-hover",
+  variationThumbColour = "#000000",
+  variationName = "Dark",
+  variationNumber = "4",
+  numberOfGroups = "2",
+  strokeWidth = "1.5",
+  backgroundIsGroup = "true",
+  defaultColours = '{"group-1":"#E6E9EC", "group-2":"#000000", "background":"#000000"}',
+  height = "100%",
+  width = "100%",
+  className = "cursor-pointer",
+} = Astro.props;
+---
+
+<animated-icons
+  src={src}
+  trigger={trigger}
+  data-variationThumbColour={variationThumbColour}
+  data-variationName={variationName}
+  data-variationNumber={variationNumber}
+  data-numberOfGroups={numberOfGroups}
+  data-strokeWidth={strokeWidth}
+  data-backgroundIsGroup={backgroundIsGroup}
+  data-defaultColours={defaultColours}
+  height={height}
+  width={width}
+  class={className}
+></animated-icons>
+

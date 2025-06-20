@@ -89,7 +89,6 @@ body {
 
 .parent {
     width: 90%;
-    text-align: center;
     height: 94vh;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
