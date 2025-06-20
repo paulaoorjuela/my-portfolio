@@ -1,4 +1,30 @@
+---
+const socialMedia = [
+    {
+        name: "LinkedIn",
+        url: "https://www.linkedin.com/in/paula-orjuela-468a22270/",
+        icon: "./assets/linkedin_icon.svg"
+    },
+    {
+        name: "Email",
+        url: "https://mail.google.com/mail/?view=cm&fs=1&to=paulaoorjuela@gmail.com",
+        icon: "./assets/Mail_icon.svg"
+    },
+    {
+        name: "Github",
+        url: "https://github.com/paulaoorjuela",
+        icon: "./assets/Github.svg"
+    }
+    ]
+---
+
 <div class="div8 gray-background">
-    <p class="raleway-semiBold white-text text-[30px] text-left mt-[28px] ms-[29px]">Contact</p>
-    <div></div>
+    <p class="raleway-semiBold white-text text-[30px] text-left mt-[15px] mb-[10px] ms-[29px] hidden lg:block">Contact</p>
+    <div class="flex justify-center gap-x-3">
+        {socialMedia.map(media => (
+            <a href={media.url} class="hover:scale-110 transition-transform duration-300" target="_blank">
+            <img src={media.icon} alt={media.name}/>
+        </a>
+        ))}
+    </div>
 </div>
