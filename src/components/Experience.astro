@@ -3,7 +3,7 @@ import ResponsiveAnimatedIcon from "./ResponsiveAnimatedIcon.astro";
 ---
 
 <div class="div2 yellow-background overflow-hidden relative">
-    <div class="flex justify-end w-[33px] md:w-[40px] lg:w-[50px] ml-auto">
+    <div class="flex justify-end w-[33px] md:w-[40px] lg:w-[50px] ml-auto" id="open-modal" role="button" tabindex="0">
         <ResponsiveAnimatedIcon
             src="https://animatedicons.co/get-icon?name=Fullscreen&style=minimalistic&token=defd54f5-3357-43dd-ad9e-32e227c0ac60" 
         />
@@ -18,3 +18,53 @@ import ResponsiveAnimatedIcon from "./ResponsiveAnimatedIcon.astro";
         alt="3d piramid"
     />
 </div>
+
+
+    <div id="modal-overlay" class="fixed inset-0 flex items-center justify-center z-50 opacity-0">
+        <div class="bg-white p-6 rounded-2xl shadow-lg w-11/12 max-w-md relative">
+        <button id="close-modal" class="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-xl font-bold">
+            &times;
+        </button>
+        <h2 class="text-xl font-semibold mb-4">Modal Title</h2>
+        <p class="text-gray-600">This is your modal content.</p>
+        </div>
+    </div>
+
+
+<!-- Script to control modal -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const openBtn = document.getElementById('open-modal') as HTMLElement | null;
+        const closeBtn = document.getElementById('close-modal') as HTMLElement | null;
+        const overlay = document.getElementById('modal-overlay') as HTMLElement | null;
+
+        if (openBtn && overlay) {
+        openBtn.addEventListener('click', () => {
+            overlay.classList.remove('hidden');
+            setTimeout(() => {
+                overlay.classList.remove('opacity-0');
+                overlay.classList.add('opacity-100');
+            }, 10);
+        });
+        }
+
+        if (closeBtn && overlay) {
+        closeBtn.addEventListener('click', () => {
+            overlay.classList.remove('opacity-100');
+            overlay.classList.add('opacity-0');
+            setTimeout(() => overlay.classList.add('hidden'), 300);
+        });
+        }
+
+        if (overlay) {
+        overlay.addEventListener('click', (e: MouseEvent) => {
+            const target = e.target as HTMLElement | null;
+            if (target?.id === 'modal-overlay') {
+            overlay.classList.remove('opacity-100');
+            overlay.classList.add('opacity-0');
+            setTimeout(() => overlay.classList.add('hidden'), 300);
+            }
+        });
+        }
+    });
+</script>
