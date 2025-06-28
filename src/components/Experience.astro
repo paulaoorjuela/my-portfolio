@@ -4,7 +4,7 @@ import ResponsiveAnimatedIcon from "./ResponsiveAnimatedIcon.astro";
 
 <div class="div2 yellow-background overflow-hidden relative">
     <div 
-        class="flex justify-end w-[33px] md:w-[40px] lg:w-[50px] ml-auto cursor-pointer" id="openModalBtn" aria-label="Open modal"
+        class="flex justify-end w-[33px] md:w-[40px] lg:w-[50px] ml-auto cursor-pointer" id="openModalExperience" aria-label="Open modal"
     >
         <ResponsiveAnimatedIcon
             src="https://animatedicons.co/get-icon?name=Fullscreen&style=minimalistic&token=defd54f5-3357-43dd-ad9e-32e227c0ac60"
@@ -25,20 +25,20 @@ import ResponsiveAnimatedIcon from "./ResponsiveAnimatedIcon.astro";
 
 <!-- Modal overlay -->
 <div
-    id="modal"
+    id="modalExperience"
     class="fixed inset-0 flex items-center justify-center z-50 bg-black/30 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300"
 >
-    <div id="modalContent" class="bg-white rounded-lg p-6 w-11/12 max-w-lg relative transform scale-95 opacity-0 transition-all duration-300 max-h-[90vh] overflow-y-auto">
+    <div id="modalContentExperience" class="bg-white rounded-lg p-6 w-11/12 max-w-lg relative transform scale-95 opacity-0 transition-all duration-300 max-h-[90vh] overflow-y-auto">
     <!-- Close button -->
         <button
-            id="closeModalBtn"
+            id="closeModalBtnExperience"
             class="fixed top-2 right-2 text-black text-xl font-bold cursor-pointer"
 
         >
             ✕
         </button>
         <!-- Modal content -->
-        <h2 class="text-xl font-semibold mb-4">Modal Title</h2>
+        <h2 class="text-xl font-semibold mb-4">Experience</h2>
         <p class="text-gray-700">This is the modal content.</p>
     </div>
 </div>
@@ -46,10 +46,10 @@ import ResponsiveAnimatedIcon from "./ResponsiveAnimatedIcon.astro";
 
 <script is:inline>
     document.addEventListener("DOMContentLoaded", () => {
-        const trigger = document.querySelector("#openModalBtn");
-        const modal = document.querySelector("#modal");
-        const modalContent = document.querySelector("#modalContent");
-        const closeBtn = document.querySelector("#closeModalBtn");
+        const trigger = document.querySelector("#openModalExperience");
+        const modal = document.querySelector("#modalExperience");
+        const modalContent = document.querySelector("#modalContentExperience");
+        const closeBtn = document.querySelector("#closeModalBtnExperience");
 
         const showModal = () => {
         modal.classList.remove("pointer-events-none", "opacity-0");
