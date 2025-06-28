@@ -3,12 +3,16 @@ import ResponsiveAnimatedIcon from "./ResponsiveAnimatedIcon.astro";
 ---
 
 <div class="div2 yellow-background overflow-hidden relative">
-    <div class="flex justify-end w-[33px] md:w-[40px] lg:w-[50px] ml-auto" id="open-modal" role="button" tabindex="0">
+    <div 
+        class="flex justify-end w-[33px] md:w-[40px] lg:w-[50px] ml-auto cursor-pointer" id="openModalBtn" aria-label="Open modal"
+    >
         <ResponsiveAnimatedIcon
-            src="https://animatedicons.co/get-icon?name=Fullscreen&style=minimalistic&token=defd54f5-3357-43dd-ad9e-32e227c0ac60" 
+            src="https://animatedicons.co/get-icon?name=Fullscreen&style=minimalistic&token=defd54f5-3357-43dd-ad9e-32e227c0ac60"
         />
     </div>
-    <p class="raleway-semiBold underline text-[20px] lg:text-[35px] text-left mt-[3px] lg:mt-[55px] ms-[10px] lg:ms-[29px]">
+    <p
+        class="raleway-semiBold underline text-[20px] lg:text-[35px] text-left mt-[3px] lg:mt-[55px] ms-[10px] lg:ms-[29px]"
+    >
         Experience
     </p>
     <img
@@ -19,52 +23,66 @@ import ResponsiveAnimatedIcon from "./ResponsiveAnimatedIcon.astro";
     />
 </div>
 
+<!-- Modal overlay -->
+<div
+    id="modal"
+    class="fixed inset-0 flex items-center justify-center z-50 bg-black/30 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300"
+>
+    <div id="modalContent" class="bg-white rounded-lg p-6 w-11/12 max-w-lg relative transform scale-95 opacity-0 transition-all duration-300 max-h-[90vh] overflow-y-auto">
+    <!-- Close button -->
+        <button
+            id="closeModalBtn"
+            class="fixed top-2 right-2 text-black text-xl font-bold cursor-pointer"
 
-    <div id="modal-overlay" class="fixed inset-0 flex items-center justify-center z-50 opacity-0">
-        <div class="bg-white p-6 rounded-2xl shadow-lg w-11/12 max-w-md relative">
-        <button id="close-modal" class="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-xl font-bold">
-            &times;
+        >
+            ✕
         </button>
+        <!-- Modal content -->
         <h2 class="text-xl font-semibold mb-4">Modal Title</h2>
-        <p class="text-gray-600">This is your modal content.</p>
-        </div>
+        <p class="text-gray-700">This is the modal content.</p>
     </div>
+</div>
 
 
-<!-- Script to control modal -->
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const openBtn = document.getElementById('open-modal') as HTMLElement | null;
-        const closeBtn = document.getElementById('close-modal') as HTMLElement | null;
-        const overlay = document.getElementById('modal-overlay') as HTMLElement | null;
+<script is:inline>
+    document.addEventListener("DOMContentLoaded", () => {
+        const trigger = document.querySelector("#openModalBtn");
+        const modal = document.querySelector("#modal");
+        const modalContent = document.querySelector("#modalContent");
+        const closeBtn = document.querySelector("#closeModalBtn");
 
-        if (openBtn && overlay) {
-        openBtn.addEventListener('click', () => {
-            overlay.classList.remove('hidden');
-            setTimeout(() => {
-                overlay.classList.remove('opacity-0');
-                overlay.classList.add('opacity-100');
-            }, 10);
-        });
+        const showModal = () => {
+        modal.classList.remove("pointer-events-none", "opacity-0");
+        modal.classList.add("opacity-100");
+        modalContent.classList.remove("scale-95", "opacity-0");
+        modalContent.classList.add("scale-100", "opacity-100");
+        };
+
+        const hideModal = () => {
+        modal.classList.remove("opacity-100");
+        modal.classList.add("opacity-0");
+        modalContent.classList.remove("scale-100", "opacity-100");
+        modalContent.classList.add("scale-95", "opacity-0");
+
+        setTimeout(() => {
+            modal.classList.add("pointer-events-none");
+        }, 300); // match transition duration
+        };
+
+        trigger.addEventListener("click", showModal);
+        closeBtn.addEventListener("click", hideModal);
+
+        modal.addEventListener("click", (e) => {
+        if (e.target === modal) {
+            hideModal();
         }
-
-        if (closeBtn && overlay) {
-        closeBtn.addEventListener('click', () => {
-            overlay.classList.remove('opacity-100');
-            overlay.classList.add('opacity-0');
-            setTimeout(() => overlay.classList.add('hidden'), 300);
         });
-        }
 
-        if (overlay) {
-        overlay.addEventListener('click', (e: MouseEvent) => {
-            const target = e.target as HTMLElement | null;
-            if (target?.id === 'modal-overlay') {
-            overlay.classList.remove('opacity-100');
-            overlay.classList.add('opacity-0');
-            setTimeout(() => overlay.classList.add('hidden'), 300);
+        // Close modal with ESC key
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape" && !modal.classList.contains("pointer-events-none")) {
+                hideModal();
             }
         });
-        }
     });
 </script>
