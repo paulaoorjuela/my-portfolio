@@ -1,13 +1,16 @@
 ---
+import Modal from "./Modal.astro";
 import ResponsiveAnimatedIcon from "./ResponsiveAnimatedIcon.astro";
 ---
 
 <div class="div2 yellow-background overflow-hidden relative">
-    <div 
-        class="flex justify-end w-[33px] md:w-[40px] lg:w-[50px] ml-auto cursor-pointer" id="openModalExperience" aria-label="Open modal"
+    <div
+        class="flex justify-end w-[33px] md:w-[40px] lg:w-[50px] ml-auto cursor-pointer"
+        id="openModalExperience"
+        aria-label="Open modal"
     >
         <ResponsiveAnimatedIcon
-            src="https://animatedicons.co/get-icon?name=Fullscreen&style=minimalistic&token=defd54f5-3357-43dd-ad9e-32e227c0ac60"
+        src="https://animatedicons.co/get-icon?name=Fullscreen&style=minimalistic&token=defd54f5-3357-43dd-ad9e-32e227c0ac60"
         />
     </div>
     <p
@@ -24,65 +27,6 @@ import ResponsiveAnimatedIcon from "./ResponsiveAnimatedIcon.astro";
 </div>
 
 <!-- Modal overlay -->
-<div
-    id="modalExperience"
-    class="fixed inset-0 flex items-center justify-center z-50 bg-black/30 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300"
->
-    <div id="modalContentExperience" class="bg-white rounded-lg p-6 w-11/12 max-w-lg relative transform scale-95 opacity-0 transition-all duration-300 max-h-[90vh] overflow-y-auto">
-    <!-- Close button -->
-        <button
-            id="closeModalBtnExperience"
-            class="fixed top-2 right-2 text-black text-xl font-bold cursor-pointer"
-
-        >
-            ✕
-        </button>
-        <!-- Modal content -->
-        <h2 class="text-xl font-semibold mb-4">Experience</h2>
-        <p class="text-gray-700">This is the modal content.</p>
-    </div>
-</div>
-
-
-<script is:inline>
-    document.addEventListener("DOMContentLoaded", () => {
-        const trigger = document.querySelector("#openModalExperience");
-        const modal = document.querySelector("#modalExperience");
-        const modalContent = document.querySelector("#modalContentExperience");
-        const closeBtn = document.querySelector("#closeModalBtnExperience");
-
-        const showModal = () => {
-        modal.classList.remove("pointer-events-none", "opacity-0");
-        modal.classList.add("opacity-100");
-        modalContent.classList.remove("scale-95", "opacity-0");
-        modalContent.classList.add("scale-100", "opacity-100");
-        };
-
-        const hideModal = () => {
-        modal.classList.remove("opacity-100");
-        modal.classList.add("opacity-0");
-        modalContent.classList.remove("scale-100", "opacity-100");
-        modalContent.classList.add("scale-95", "opacity-0");
-
-        setTimeout(() => {
-            modal.classList.add("pointer-events-none");
-        }, 300); // match transition duration
-        };
-
-        trigger.addEventListener("click", showModal);
-        closeBtn.addEventListener("click", hideModal);
-
-        modal.addEventListener("click", (e) => {
-        if (e.target === modal) {
-            hideModal();
-        }
-        });
-
-        // Close modal with ESC key
-        document.addEventListener("keydown", (e) => {
-            if (e.key === "Escape" && !modal.classList.contains("pointer-events-none")) {
-                hideModal();
-            }
-        });
-    });
-</script>
+<Modal id="modalExperience" triggerId="#openModalExperience" >
+    <p>This is the modal content.</p>
+<Modal />

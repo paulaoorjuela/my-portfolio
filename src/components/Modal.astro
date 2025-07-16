@@ -1,0 +1,71 @@
+---
+// src/components/Modal.astro
+const { id, triggerId } = Astro.props;
+---
+
+<div
+    id={id}
+    class="js-modal fixed inset-0 flex items-center justify-center z-50 bg-black/30 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300"
+    data-trigger-id={triggerId}
+>
+    <div
+        id={`content-${id}`}
+        class="bg-white rounded-lg p-6 w-11/12 max-w-lg relative transform scale-95 opacity-0 transition-all duration-300 max-h-[90vh] overflow-y-auto"
+    >
+        <button
+        id={`close-${id}`}
+        class="js-modal-close fixed top-2 right-2 text-black text-xl font-bold cursor-pointer"
+        >
+        ✕
+        </button>
+        <div class="text-gray-700">
+        <slot />
+        </div>
+    </div>
+</div>
+
+<script is:inline>
+    document.addEventListener("DOMContentLoaded", () => {
+        // Find the modal element by class instead of ID
+        const modal = document.querySelector('.js-modal[data-trigger-id]');
+        if (!modal) return;
+        
+        // Get IDs from data attributes
+        const triggerId = modal.dataset.triggerId;
+        const modalId = modal.id;
+        
+        // Get elements
+        const trigger = document.querySelector(triggerId);
+        const modalContent = document.getElementById(`content-${modalId}`);
+        const closeBtn = document.getElementById(`close-${modalId}`);
+
+
+        const showModal = () => {
+        modal.classList.remove("pointer-events-none", "opacity-0");
+        modal.classList.add("opacity-100");
+        modalContent.classList.remove("scale-95", "opacity-0");
+        modalContent.classList.add("scale-100", "opacity-100");
+        };
+
+        const hideModal = () => {
+        modal.classList.remove("opacity-100");
+        modal.classList.add("opacity-0");
+        modalContent.classList.remove("scale-100", "opacity-100");
+        modalContent.classList.add("scale-95", "opacity-0");
+        setTimeout(() => {
+            modal.classList.add("pointer-events-none");
+        }, 300);
+        };
+
+        trigger.addEventListener("click", showModal);
+        closeBtn.addEventListener("click", hideModal);
+        modal.addEventListener("click", (e) => {
+        if (e.target === modal) hideModal();
+        });
+        document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && !modal.classList.contains("pointer-events-none")) {
+            hideModal();
+        }
+        });
+    });
+</script>
