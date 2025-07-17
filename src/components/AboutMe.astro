@@ -1,17 +1,28 @@
 ---
+import Modal from "./Modal.astro";
 import ResponsiveAnimatedIcon from "./ResponsiveAnimatedIcon.astro";
 ---
 
 <div class="div7 yellow-background overflow-hidden relative">
-            <div class="flex justify-end w-[33px] md:w-[40px] lg:w-[50px] ml-auto">
-                <ResponsiveAnimatedIcon
-            src="https://animatedicons.co/get-icon?name=Fullscreen&style=minimalistic&token=defd54f5-3357-43dd-ad9e-32e227c0ac60" 
+    <div class="flex justify-end w-[33px] md:w-[40px] lg:w-[50px] ml-auto" id="openModalAboutMe" aria-label="Open modal About Me">
+        <ResponsiveAnimatedIcon
+        src="https://animatedicons.co/get-icon?name=Fullscreen&style=minimalistic&token=defd54f5-3357-43dd-ad9e-32e227c0ac60"
         />
-            </div>
-            <p class="text-[20px] lg:text-[35px] raleway-regular text-left mt-[3px] lg:mt-[55px] ms-[10px] lg:ms-[29px]">About <span class="shrikhand-regular underline">me</span></p>
-            <img 
-                class="absolute w-[40%] md:w-[50%] h-auto object-contain"
-                style="bottom: 10px; right: 10px;"
-                src="/assets/flower.png" 
-                alt="flower" />
-        </div>
+    </div>
+    <p
+        class="text-[20px] lg:text-[35px] raleway-regular text-left mt-[3px] lg:mt-[55px] ms-[10px] lg:ms-[29px]"
+    >
+        About <span class="shrikhand-regular underline">me</span>
+    </p>
+    <img
+        class="absolute w-[40%] md:w-[50%] h-auto object-contain"
+        style="bottom: 10px; right: 10px;"
+        src="/assets/flower.png"
+        alt="flower"
+    />
+</div>
+
+<!-- Modal overlay -->
+<Modal id="modalAboutMe" triggerId="#openModalAboutMe" >
+    <p>This is the modal content. EDUCATION</p>
+</Modal>

@@ -1,4 +1,5 @@
 ---
+import Modal from "./Modal.astro";
 import ResponsiveAnimatedIcon from "./ResponsiveAnimatedIcon.astro";
 ---
 
@@ -8,9 +9,15 @@ import ResponsiveAnimatedIcon from "./ResponsiveAnimatedIcon.astro";
         class="absolute w-[60%] md:w-[30%] h-auto object-contain bottom-[-16px] lg:bottom-[-13px] right-[34px] lg:right-[87px]"
         src="/assets/ring.avif" 
         alt="3d ring" />
-    <div class="flex justify-end items-baseline w-[33px] md:w-[40px] lg:w-[50px] ml-auto">
+    <div class="flex justify-end items-baseline w-[33px] md:w-[40px] lg:w-[50px] ml-auto" id="openModalEducation"
+        aria-label="Open modal Education">
         <ResponsiveAnimatedIcon
             src="https://animatedicons.co/get-icon?name=Fullscreen&style=minimalistic&token=defd54f5-3357-43dd-ad9e-32e227c0ac60" 
         />
     </div>
 </div>
+
+<!-- Modal overlay -->
+<Modal id="modalEducation" triggerId="#openModalEducation" bgColor="bg-black">
+    <p>This is the modal content. EDUCATION</p>
+</Modal>

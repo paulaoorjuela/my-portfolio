@@ -1,82 +1,32 @@
 ---
+import Modal from "./Modal.astro";
 import ResponsiveAnimatedIcon from "./ResponsiveAnimatedIcon.astro";
 ---
 
 <div class="div3 light-gray-background overflow-hidden relative">
-    <div class="flex justify-end w-[33px] md:w-[40px] lg:w-[50px] ml-auto cursor-pointer" id="openModalProjects" aria-label="Open modal">
+    <div
+        class="flex justify-end w-[33px] md:w-[40px] lg:w-[50px] ml-auto cursor-pointer"
+        id="openModalProjects"
+        aria-label="Open modal Projects"
+    >
         <ResponsiveAnimatedIcon
-            src="https://animatedicons.co/get-icon?name=Fullscreen&style=minimalistic&token=defd54f5-3357-43dd-ad9e-32e227c0ac60"
+        src="https://animatedicons.co/get-icon?name=Fullscreen&style=minimalistic&token=defd54f5-3357-43dd-ad9e-32e227c0ac60"
         />
     </div>
-    <p class="raleway-semiBold white-text text-[20px] lg:text-[35px] text-left mt-[3px] lg:mt-[55px] ms-[10px] lg:ms-[29px]">Projects</p>
-    <img 
+    <p
+        class="raleway-semiBold white-text text-[20px] lg:text-[35px] text-left mt-[3px] lg:mt-[55px] ms-[10px] lg:ms-[29px]"
+    >
+        Projects
+    </p>
+    <img
         class="absolute w-[40%] md:w-[60%] h-auto object-contain"
-        style="bottom: 10px; right: 10px;" 
-        src="/assets/spring.avif" 
-        alt="3d spring" 
+        style="bottom: 10px; right: 10px;"
+        src="/assets/spring.avif"
+        alt="3d spring"
     />
 </div>
 
 <!-- Modal overlay -->
-<div
-    id="modalProjects"
-    class="fixed inset-0 flex items-center justify-center z-50 bg-black/30 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300"
->
-    <div id="modalContentProjects" class="bg-white rounded-lg p-6 w-11/12 max-w-lg relative transform scale-95 opacity-0 transition-all duration-300 max-h-[90vh] overflow-y-auto">
-    <!-- Close button -->
-        <button
-            id="closeModalBtnProjects"
-            class="fixed top-2 right-2 text-black text-xl font-bold cursor-pointer"
-
-        >
-            ✕
-        </button>
-        <!-- Modal content -->
-        <h2 class="text-xl font-semibold mb-4">Projects</h2>
-        <p class="text-gray-700">This is the modal content.</p>
-    </div>
-</div>
-
-
-<script is:inline>
-    document.addEventListener("DOMContentLoaded", () => {
-        const trigger = document.querySelector("#openModalProjects");
-        const modal = document.querySelector("#modalProjects");
-        const modalContent = document.querySelector("#modalContentProjects");
-        const closeBtn = document.querySelector("#closeModalBtnProjects");
-
-        const showModal = () => {
-        modal.classList.remove("pointer-events-none", "opacity-0");
-        modal.classList.add("opacity-100");
-        modalContent.classList.remove("scale-95", "opacity-0");
-        modalContent.classList.add("scale-100", "opacity-100");
-        };
-
-        const hideModal = () => {
-        modal.classList.remove("opacity-100");
-        modal.classList.add("opacity-0");
-        modalContent.classList.remove("scale-100", "opacity-100");
-        modalContent.classList.add("scale-95", "opacity-0");
-
-        setTimeout(() => {
-            modal.classList.add("pointer-events-none");
-        }, 300); // match transition duration
-        };
-
-        trigger.addEventListener("click", showModal);
-        closeBtn.addEventListener("click", hideModal);
-
-        modal.addEventListener("click", (e) => {
-        if (e.target === modal) {
-            hideModal();
-        }
-        });
-
-        // Close modal with ESC key
-        document.addEventListener("keydown", (e) => {
-            if (e.key === "Escape" && !modal.classList.contains("pointer-events-none")) {
-                hideModal();
-            }
-        });
-    });
-</script>
+<Modal id="modalProjects" triggerId="#openModalProjects">
+    <p>This is the modal content PROJECTS.</p>
+</Modal>

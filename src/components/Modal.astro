@@ -1,6 +1,6 @@
 ---
 // src/components/Modal.astro
-const { id, triggerId } = Astro.props;
+const { id, triggerId, bgColor = "bg-white" } = Astro.props;
 ---
 
 <div
@@ -10,7 +10,7 @@ const { id, triggerId } = Astro.props;
 >
     <div
         id={`content-${id}`}
-        class="bg-white rounded-lg p-6 w-11/12 max-w-lg relative transform scale-95 opacity-0 transition-all duration-300 max-h-[90vh] overflow-y-auto"
+        class={`${bgColor} rounded-lg p-6 w-11/12 max-w-lg relative transform scale-95 opacity-0 transition-all duration-300 max-h-[90vh] overflow-y-auto`}
     >
         <button
         id={`close-${id}`}
@@ -18,7 +18,7 @@ const { id, triggerId } = Astro.props;
         >
         ✕
         </button>
-        <div class="text-gray-700">
+        <div>
         <slot />
         </div>
     </div>
@@ -26,10 +26,10 @@ const { id, triggerId } = Astro.props;
 
 <script is:inline>
     document.addEventListener("DOMContentLoaded", () => {
-        // Find the modal element by class instead of ID
-        const modal = document.querySelector('.js-modal[data-trigger-id]');
-        if (!modal) return;
+        // Find ALL modal elements
+        const modals = document.querySelectorAll('.js-modal[data-trigger-id]');
         
+        modals.forEach(modal => {
         // Get IDs from data attributes
         const triggerId = modal.dataset.triggerId;
         const modalId = modal.id;
@@ -39,32 +39,54 @@ const { id, triggerId } = Astro.props;
         const modalContent = document.getElementById(`content-${modalId}`);
         const closeBtn = document.getElementById(`close-${modalId}`);
 
+        if (!trigger || !modalContent || !closeBtn) {
+            console.error(`Missing elements for modal: ${modalId}`);
+            return;
+        }
 
         const showModal = () => {
-        modal.classList.remove("pointer-events-none", "opacity-0");
-        modal.classList.add("opacity-100");
-        modalContent.classList.remove("scale-95", "opacity-0");
-        modalContent.classList.add("scale-100", "opacity-100");
+            modal.classList.remove("pointer-events-none", "opacity-0");
+            modal.classList.add("opacity-100");
+            modalContent.classList.remove("scale-95", "opacity-0");
+            modalContent.classList.add("scale-100", "opacity-100");
         };
 
         const hideModal = () => {
-        modal.classList.remove("opacity-100");
-        modal.classList.add("opacity-0");
-        modalContent.classList.remove("scale-100", "opacity-100");
-        modalContent.classList.add("scale-95", "opacity-0");
-        setTimeout(() => {
+            modal.classList.remove("opacity-100");
+            modal.classList.add("opacity-0");
+            modalContent.classList.remove("scale-100", "opacity-100");
+            modalContent.classList.add("scale-95", "opacity-0");
+            setTimeout(() => {
             modal.classList.add("pointer-events-none");
-        }, 300);
+            }, 300);
         };
 
         trigger.addEventListener("click", showModal);
         closeBtn.addEventListener("click", hideModal);
         modal.addEventListener("click", (e) => {
-        if (e.target === modal) hideModal();
+            if (e.target === modal) hideModal();
         });
+        });
+        
+        // Add global ESC key listener
         document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape" && !modal.classList.contains("pointer-events-none")) {
-            hideModal();
+        if (e.key === "Escape") {
+            // Find any open modal and close it
+            document.querySelectorAll('.js-modal').forEach(modal => {
+            if (!modal.classList.contains("opacity-0")) {
+                const modalId = modal.id;
+                const modalContent = document.getElementById(`content-${modalId}`);
+                
+                modal.classList.remove("opacity-100");
+                modal.classList.add("opacity-0");
+                modalContent.classList.remove("scale-100", "opacity-100");
+                modalContent.classList.add("scale-95", "opacity-0");
+                
+                setTimeout(() => {
+                modal.classList.add("pointer-events-none");
+                }, 300);
+            }
+            });
         }
         });
     });

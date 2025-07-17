@@ -1,4 +1,5 @@
 ---
+import Modal from "./Modal.astro";
 import ResponsiveAnimatedIcon from "./ResponsiveAnimatedIcon.astro";
 ---
 
@@ -8,9 +9,15 @@ import ResponsiveAnimatedIcon from "./ResponsiveAnimatedIcon.astro";
         class="absolute w-[30%] md:w-[28%] h-auto object-contain bottom-[20px] lg:bottom-[30px] right-[30px] lg:right-[70px]"
         src="/assets/skills.avif" 
         alt="3d skills" />
-    <div class="flex justify-end items-baseline w-[33px] md:w-[40px] lg:w-[50px] ml-auto">
+    <div class="flex justify-end items-baseline w-[33px] md:w-[40px] lg:w-[50px] ml-auto" id="openModalSkills"
+        aria-label="Open modal Skills">
         <ResponsiveAnimatedIcon
             src="https://animatedicons.co/get-icon?name=Fullscreen&style=minimalistic&token=defd54f5-3357-43dd-ad9e-32e227c0ac60" 
         />
     </div>
 </div>
+
+<!-- Modal overlay -->
+<Modal id="modalSkills" triggerId="#openModalSkills" >
+    <p>This is the modal content. SKILLS</p>
+</Modal>
