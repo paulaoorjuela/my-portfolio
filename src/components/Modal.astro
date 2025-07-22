@@ -10,11 +10,11 @@ const { id, triggerId, bgColor = "bg-white" } = Astro.props;
 >
     <div
         id={`content-${id}`}
-        class={`${bgColor} rounded-lg p-6 w-11/12 max-w-lg relative transform scale-95 opacity-0 transition-all duration-300 max-h-[90vh] overflow-y-auto`}
+        class={`${bgColor} rounded-lg py-[90px] px-[100px] w-11/12 max-w-[70%] relative transform scale-95 opacity-0 transition-all duration-300 max-h-[90vh] overflow-y-auto`}
     >
         <button
         id={`close-${id}`}
-        class="js-modal-close fixed top-2 right-2 text-black text-xl font-bold cursor-pointer"
+        class="js-modal-close fixed top-2 right-2 text-white text-4xl font-bold cursor-pointer"
         >
         ✕
         </button>

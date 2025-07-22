@@ -1,3 +1,11 @@
+/* ----------- MODAL COMPONENT ----------- */
+.js-modal-close:hover{
+    color: #bebebe;
+    transform: scale(1.1); /* Slightly enlarge the close button on hover */
+    transition: color 0.3s, transform 0.3s;
+}
+
+/* ----------- SPOTIFY COMPONENT ----------- */
 @media (max-width: 770px) {
     .spotify{
         display: block;

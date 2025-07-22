@@ -15,6 +15,13 @@ body {
 }
 
 /* ------------ FONTS ------------ */
+.raleway-light {
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+}
+
 .raleway-regular {
     font-family: "Raleway", sans-serif;
     font-optical-sizing: auto;
