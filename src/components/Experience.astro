@@ -1,6 +1,76 @@
 ---
 import Modal from "./Modal.astro";
 import ResponsiveAnimatedIcon from "./ResponsiveAnimatedIcon.astro";
+import ExperienceModalContent from "./modal-content/ExperienceModalContent.astro";
+
+const experiences = [
+    {
+        title: "Web Developer",
+        titleColor: "yellow-text",
+        company: "MAD Marketing Agency",
+        location: "Bogotá, Colombia",
+        bgColor: "gray-background",
+        borderColor: "border-[#55575C]",
+        textColor: "white-text",
+        bullets: [
+        "Developed responsive and user-friendly websites using HTML, CSS, JavaScript,  MEAN  and MERN stack, integrating authentication tools and external APIs.",
+        "Collaborated with UX/UI designers to create visually appealing and highly functional websites, utilizing Cloudinary for media storage.",
+        "Worked as DevOps, deploying web pages, managing servers, and ensuring scalability and performance.",
+        ],
+    },
+    {
+        title: "Full-Stack Developer",
+        highlight: true,
+        company: "Bogotá Institute of Technology (BIT)",
+        location: "Bogotá, Colombia",
+        bgColor: "bg-white",
+        textColor: "gray-text",
+        bullets: [
+        "Developed responsive and user-friendly websites using HTML, CSS, JavaScript, and the MEAN stack.",
+        "Translated design concepts from Figma into engaging user interfaces, ensuring an excellent user experience. ",
+        "Integrated Docker and AWS to deploy the social network, ensuring high availability and scalability for users accessing the platform",
+        ],
+    },
+    {
+        title: "Front-end Developer / UX-UI Designer",
+        company: "NoCountry Organization",
+        location: "International",
+        bgColor: "yellow-background",
+        textColor: "gray-text",
+        bullets: [
+        "Strengthened my professional skills in Java, Spring, MySQL, Angular, Bootstrap, Git, and Figma. ",
+        "Improved soft skills such as teamwork, assertive communication, responsibility, and autonomy by collaborating with a multicultural team.",
+        "Applied the SCRUM methodology and used tools like Jira, Trello, and Miro to efficiently manage projects.",
+        ],
+    },
+        {
+        title: "Front-end Software Developer",
+        titleColor: "yellow-text",
+        company: "Foo Talent Group",
+        location: "International",
+        bgColor: "gray-background",
+        borderColor: "border-[#55575C]",
+        textColor: "white-text",
+        bullets: [
+        "Developed robust web applications using React with TailwindCSS for the frontend and Nest.js for the backend, including complex functionalities such as role-based access control, patient management systems, and real-time email notifications.",
+        "Successfully collaborated with Foo Talent Group to deliver a comprehensive web solution for Grinpol Dental Clinic, effectively translating client requirements into functional and user-friendly software.",
+        "Gained experience working in an Agile environment, following Scrum methodology, including sprints, daily meetings, and task management with Trello, ensuring timely and efficient project delivery.",
+        ],
+    },
+    {
+        title: "Software Development Mentor",
+        highlight: true,
+        company: "Bogotá Institute of Technology (BIT)",
+        location: "Bogotá, Colombia",
+        bgColor: "bg-white",
+        textColor: "gray-text",
+        bullets: [
+        "Provided mentorship by reviewing and giving feedback on students' code, ensuring best practices and clean code standards.",
+        "Assisted students in gaining a deeper understanding of various technologies and tools, including VSCode, AWS, Docker, NGINX, unit testing, Angular, Node.js, and MongoDB, guiding them through practical use cases and problem-solving.",
+        "Created a supportive learning environment, encouraging growth and development in both technical and soft skills",
+        ],
+    },
+];
 ---
 
 <div class="div2 yellow-background overflow-hidden relative">
@@ -34,75 +104,21 @@ import ResponsiveAnimatedIcon from "./ResponsiveAnimatedIcon.astro";
 >
     <p class="raleway-semiBold underline white-text text-[50px]">Experience</p>
     <section class="flex flex-col gap-3.5 mt-5">
-        <div class="border-[#55575C] border-4 rounded-xl py-10 px-20">
-        <p class="yellow-text raleway-semiBold text-2xl">Web Developer</p>
-        <p class="white-text raleway-light text-[12px] mb-2">
-            MAD Marketing Agency | Bogotá, Colombia
-        </p>
-        <ul
-            class="white-text raleway-regular text-[16px] list-disc pl-5 flex flex-col gap-2"
-        >
-            <li>
-            Developed responsive and user-friendly websites using HTML, CSS,
-            JavaScript, MEAN and MERN stack, integrating authentication tools and
-            external APIs.
-            </li>
-            <li>
-            Collaborated with UX/UI designers to create visually appealing and
-            highly functional websites, utilizing Cloudinary for media storage.
-            </li>
-            <li>
-            Worked as DevOps, deploying web pages, managing servers, and ensuring
-            scalability and performance.
-            </li>
-        </ul>
-        </div>
-        <div class="white-background rounded-xl py-10 px-20">
-        <p class="yellow-text raleway-semiBold"></p>
-        <mark
-            class="raleway-semiBold text-2xl yellow-background black-text rounded-sm pr-1 pl-1 py-0"
-            >Full-Stack Developer</mark
-        >
-        <p class="light-gray-text raleway-light text-[12px] mb-2">
-            Bogotá Institute of Technology (BIT) | Bogotá, Colombia
-        </p>
-        <ul
-            class="gray-text raleway-regular text-[16px] list-disc pl-5 flex flex-col gap-2"
-        >
-            <li>
-            Developed responsive and user-friendly websites using HTML, CSS,
-            JavaScript, and the MEAN stack.
-            </li>
-            <li>
-            Translated design concepts from Figma into engaging user interfaces,
-            ensuring an excellent user experience.
-            </li>
-            <li>
-            Integrated Docker and AWS to deploy the social network, ensuring high
-            availability and scalability for users accessing the platform
-            </li>
-        </ul>
-        </div>
-        <div class="yellow-background rounded-xl py-10 px-20">
-        <p class="gray-text raleway-semiBold text-2xl">Front-end Developer / UX-UI Designer</p>
-        <p class="gray-text raleway-light text-[12px] mb-2">
-            MAD Marketing Agency | Bogotá, Colombia
-        </p>
-        <ul class="black-text raleway-regular text-[16px] list-disc pl-5 flex flex-col gap-2">
-            <li>
-            Developed responsive and user-friendly websites using HTML, CSS,
-            JavaScript, MEAN and MERN stack, integrating authentication tools and
-            external APIs.
-            </li>
-            <li>
-            Collaborated with UX/UI designers to create visually appealing and
-            highly functional websites, utilizing Cloudinary for media storage.
-            </li>
-            <li>
-            Worked as DevOps, deploying web pages, managing servers, and ensuring
-            scalability and performance.
-            </li>
-        </ul>
-        </div>
+        {
+        experiences.map((exp, index) => (
+            <ExperienceModalContent
+            key={index}
+            title={exp.title}
+            titleColor={exp.titleColor}
+            highlight={exp.highlight}
+            company={exp.company}
+            location={exp.location}
+            bullets={exp.bullets}
+            bgColor={exp.bgColor}
+            textColor={exp.textColor}
+            borderColor={exp.borderColor}
+            />
+        ))
+        }
     </section>
 </Modal>

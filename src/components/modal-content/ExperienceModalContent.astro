@@ -1,0 +1,44 @@
+---
+const {
+    title,
+    titleColor = "",
+    highlight = false,
+    company,
+    location,
+    bullets = [],
+    bgColor = "gray-background",
+    textColor = "text-white",
+    borderColor = "",
+    highlightColor = "yellow-background"
+} = Astro.props;
+---
+
+<div
+    class={`${bgColor} ${borderColor ? `border-4 ${borderColor}` : ""} rounded-xl py-10 px-20`}
+>
+    {
+        highlight ? (
+        <mark
+            class={`raleway-semiBold text-2xl ${highlightColor} text-black rounded-sm px-2 py-0`}
+        >
+            {title}
+        </mark>
+        ) : (
+        <p class={`raleway-semiBold text-2xl ${titleColor || textColor}`}>{title}</p>
+        )
+    }
+    <p
+        class={`raleway-light text-[12px] mb-2 ${textColor}`}
+    >
+        {company} | {location}
+    </p>
+    <ul
+        class={`raleway-regular text-[16px] list-disc pl-5 flex flex-col gap-2 ${textColor}`}
+    >
+        {
+        bullets.map((bullet: any, index: any) => (
+            <li>{bullet}</li>
+        ))
+        }
+    </ul>
+</div>
